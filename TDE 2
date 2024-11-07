@@ -1,10 +1,10 @@
-// ExercÃ­cio 1: Leitura e comprimento de string
+// Exercício 1: Leitura e comprimento de string
 #include <stdio.h>
 #include <string.h>
 
 void exercicio1() {
     char str[100];
-    printf("\n=== ExercÃ­cio 1 ===\n");
+    printf("\n=== Exercício 1 ===\n");
     printf("Digite uma string: ");
     fgets(str, sizeof(str), stdin);
     str[strcspn(str, "\n")] = 0; // Remove o \n do fgets
@@ -13,10 +13,10 @@ void exercicio1() {
     printf("Comprimento da string: %lu\n", strlen(str));
 }
 
-// ExercÃ­cio 2: ComparaÃ§Ã£o de strings
+// Exercício 2: Comparação de strings
 void exercicio2() {
     char str1[100], str2[100];
-    printf("\n=== ExercÃ­cio 2 ===\n");
+    printf("\n=== Exercício 2 ===\n");
     printf("Digite a primeira string: ");
     fgets(str1, sizeof(str1), stdin);
     str1[strcspn(str1, "\n")] = 0;
@@ -26,16 +26,16 @@ void exercicio2() {
     str2[strcspn(str2, "\n")] = 0;
     
     if (strcmp(str1, str2) == 0) {
-        printf("As strings sÃ£o iguais!\n");
+        printf("As strings são iguais!\n");
     } else {
-        printf("As strings sÃ£o diferentes!\n");
+        printf("As strings são diferentes!\n");
     }
 }
 
-// ExercÃ­cio 3: ExibiÃ§Ã£o caractere por caractere
+// Exercício 3: Exibição caractere por caractere
 void exercicio3() {
     char str[100];
-    printf("\n=== ExercÃ­cio 3 ===\n");
+    printf("\n=== Exercício 3 ===\n");
     printf("Digite uma string: ");
     fgets(str, sizeof(str), stdin);
     str[strcspn(str, "\n")] = 0;
@@ -46,11 +46,11 @@ void exercicio3() {
     }
 }
 
-// ExercÃ­cio 4: Contagem de caractere especÃ­fico
+// Exercício 4: Contagem de caractere específico
 void exercicio4() {
     char str[100];
     int count = 0;
-    printf("\n=== ExercÃ­cio 4 ===\n");
+    printf("\n=== Exercício 4 ===\n");
     printf("Digite uma string: ");
     fgets(str, sizeof(str), stdin);
     str[strcspn(str, "\n")] = 0;
@@ -63,10 +63,10 @@ void exercicio4() {
     printf("O caractere 'a' aparece %d vezes na string.\n", count);
 }
 
-// ExercÃ­cio 5: CÃ³pia de strings
+// Exercício 5: Cópia de strings
 void exercicio5() {
     char str1[100], str2[100];
-    printf("\n=== ExercÃ­cio 5 ===\n");
+    printf("\n=== Exercício 5 ===\n");
     printf("Digite uma string: ");
     fgets(str1, sizeof(str1), stdin);
     str1[strcspn(str1, "\n")] = 0;
@@ -76,10 +76,10 @@ void exercicio5() {
     printf("String copiada: %s\n", str2);
 }
 
-// ExercÃ­cio 6: ConcatenaÃ§Ã£o de strings
+// Exercício 6: Concatenação de strings
 void exercicio6() {
     char str1[200], str2[100], resultado[300];
-    printf("\n=== ExercÃ­cio 6 ===\n");
+    printf("\n=== Exercício 6 ===\n");
     printf("Digite a primeira string: ");
     fgets(str1, sizeof(str1), stdin);
     str1[strcspn(str1, "\n")] = 0;
@@ -93,10 +93,10 @@ void exercicio6() {
     printf("Strings concatenadas: %s\n", resultado);
 }
 
-// ExercÃ­cio 7: ConversÃ£o para maiÃºsculas
+// Exercício 7: Conversão para maiúsculas
 void exercicio7() {
     char str[100];
-    printf("\n=== ExercÃ­cio 7 ===\n");
+    printf("\n=== Exercício 7 ===\n");
     printf("Digite uma string: ");
     fgets(str, sizeof(str), stdin);
     str[strcspn(str, "\n")] = 0;
@@ -104,14 +104,14 @@ void exercicio7() {
     for (int i = 0; str[i] != '\0'; i++) {
         str[i] = toupper(str[i]);
     }
-    printf("String em maiÃºsculas: %s\n", str);
+    printf("String em maiúsculas: %s\n", str);
 }
 
-// ExercÃ­cio 8: Contagem de vogais
+// Exercício 8: Contagem de vogais
 void exercicio8() {
     char str[100];
     int vogais = 0;
-    printf("\n=== ExercÃ­cio 8 ===\n");
+    printf("\n=== Exercício 8 ===\n");
     printf("Digite uma string: ");
     fgets(str, sizeof(str), stdin);
     str[strcspn(str, "\n")] = 0;
@@ -122,14 +122,14 @@ void exercicio8() {
             vogais++;
         }
     }
-    printf("NÃºmero de vogais: %d\n", vogais);
+    printf("Número de vogais: %d\n", vogais);
 }
 
-// ExercÃ­cio 9: Contagem de espaÃ§os
+// Exercício 9: Contagem de espaços
 void exercicio9() {
     char str[100];
     int espacos = 0;
-    printf("\n=== ExercÃ­cio 9 ===\n");
+    printf("\n=== Exercício 9 ===\n");
     printf("Digite uma string: ");
     fgets(str, sizeof(str), stdin);
     str[strcspn(str, "\n")] = 0;
@@ -139,14 +139,14 @@ void exercicio9() {
             espacos++;
         }
     }
-    printf("NÃºmero de espaÃ§os: %d\n", espacos);
+    printf("Número de espaços: %d\n", espacos);
 }
 
-// ExercÃ­cio 10: AnÃ¡lise de tipos de caracteres
+// Exercício 10: Análise de tipos de caracteres
 void exercicio10() {
     char str[100];
     int letras = 0, digitos = 0, especiais = 0;
-    printf("\n=== ExercÃ­cio 10 ===\n");
+    printf("\n=== Exercício 10 ===\n");
     printf("Digite uma string: ");
     fgets(str, sizeof(str), stdin);
     str[strcspn(str, "\n")] = 0;
@@ -160,6 +160,6 @@ void exercicio10() {
             especiais++;
         }
     }
-    printf("Letras: %d\nDÃ­gitos: %d\nCaracteres especiais: %d\n", 
+    printf("Letras: %d\nDígitos: %d\nCaracteres especiais: %d\n", 
            letras, digitos, especiais);
 }
