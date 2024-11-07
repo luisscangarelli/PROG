@@ -1,0 +1,52 @@
+/*#include <stdio.h>
+
+#define MAX_PRODUTOS 100
+
+struct Produto {
+    int id;
+    char nome[50];
+    float valor;
+};
+
+void contarProdutosAbaixoValor(struct Produto produtos[], int quantidade, float valorLimite) {
+    int contador = 0;
+    for (int i = 0; i < quantidade; i++) {
+        if (produtos[i].valor < valorLimite) {
+            contador++;
+        }
+    }
+    printf("Número de produtos abaixo de %.2f: %d\n", valorLimite, contador);
+}
+
+void buscarProdutoPorID(struct Produto produtos[], int quantidade, int idBuscado) {
+    for (int i = 0; i < quantidade; i++) {
+        if (produtos[i].id == idBuscado) {
+            printf("Produto encontrado:\n");
+            printf("ID: %d\nNome: %s\nValor: %.2f\n", produtos[i].id, produtos[i].nome, produtos[i].valor);
+            return;
+        }
+    }
+    printf("Produto com ID %d não encontrado.\n", idBuscado);
+}
+
+void atualizarValorProduto(struct Produto produtos[], int quantidade, int idBuscado) {
+    for (int i = 0; i < quantidade; i++) {
+        if (produtos[i].id == idBuscado) {
+            printf("Produto encontrado:\n");
+            printf("ID: %d\nNome: %s\nValor atual: %.2f\n", produtos[i].id, produtos[i].nome, produtos[i].valor);
+            printf("Digite o novo valor: ");
+            scanf("%f", &produtos[i].valor);
+            printf("Valor atualizado com sucesso!\n");
+            return;
+        }
+    }
+    printf("Produto com ID %d não encontrado.\n", idBuscado);
+}
+
+float calcularMedia(struct Produto produtos[], int quantidade) {
+    float soma = 0.0;
+    for (int i = 0; i < quantidade; i++) {
+        soma += produtos[i].valor;
+    }
+    return soma / quantidade;
+}
