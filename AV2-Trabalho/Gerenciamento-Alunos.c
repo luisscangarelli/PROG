@@ -41,7 +41,7 @@ void incluirAluno() {
     do {
         printf("Digite a matrícula do aluno: ");
         scanf("%d", &aluno.matricula);
-        getchar(); // Limpar buffer
+        getchar(); 
         
         if (!validarMatricula(aluno.matricula)) {
             printf("Matrícula já existe! Tente outra.\n");
@@ -212,7 +212,6 @@ void consultarAluno() {
     fclose(arquivo);
 }
 
-// Função para listar todos os alunos
 void listarAlunos() {
     FILE *arquivo;
     char linha[MAX_LINE];
