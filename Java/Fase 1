@@ -1,0 +1,100 @@
+import java.util.Scanner;
+
+public class ExerciciosSequenciais {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // 1. Soma de Dois Números
+        System.out.println("Exercício 1 - Soma de dois números");
+        System.out.print("Digite o primeiro número: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Digite o segundo número: ");
+        int num2 = scanner.nextInt();
+        System.out.println("Soma: " + (num1 + num2));
+        System.out.println();
+        
+        // 2. Área de um Círculo
+        System.out.println("Exercício 2 - Área de um círculo");
+        System.out.print("Digite o raio do círculo: ");
+        double raio = scanner.nextDouble();
+        double area = Math.PI * Math.pow(raio, 2);
+        System.out.printf("Área do círculo: %.2f\n\n", area);
+        
+        // 3. Conversão de Temperatura
+        System.out.println("Exercício 3 - Conversão de temperatura");
+        System.out.print("Digite a temperatura em Celsius: ");
+        double celsius = scanner.nextDouble();
+        double fahrenheit = (celsius * 9/5) + 32;
+        System.out.printf("Temperatura em Fahrenheit: %.1f°F\n\n", fahrenheit);
+        
+        // 4. Cálculo de Média Simples
+        System.out.println("Exercício 4 - Média de três notas");
+        System.out.print("Digite a primeira nota: ");
+        double nota1 = scanner.nextDouble();
+        System.out.print("Digite a segunda nota: ");
+        double nota2 = scanner.nextDouble();
+        System.out.print("Digite a terceira nota: ");
+        double nota3 = scanner.nextDouble();
+        double media = (nota1 + nota2 + nota3) / 3;
+        System.out.printf("Média: %.2f\n\n", media);
+        
+        // 5. Conversão de Idade para Dias
+        System.out.println("Exercício 5 - Idade em dias");
+        System.out.print("Digite sua idade em anos: ");
+        int idade = scanner.nextInt();
+        int dias = idade * 365;
+        System.out.println("Dias vividos aproximadamente: " + dias);
+        System.out.println();
+        
+        // 6. Cálculo do Salário
+        System.out.println("Exercício 6 - Cálculo de salário líquido");
+        System.out.print("Digite o salário bruto: ");
+        double salarioBruto = scanner.nextDouble();
+        System.out.print("Digite o desconto do INSS: ");
+        double descontoINSS = scanner.nextDouble();
+        double salarioLiquido = salarioBruto - descontoINSS;
+        System.out.printf("Salário líquido: R$ %.2f\n\n", salarioLiquido);
+        
+        // 7. Cálculo do Perímetro e Área de um Retângulo
+        System.out.println("Exercício 7 - Perímetro e área de um retângulo");
+        System.out.print("Digite a base do retângulo: ");
+        double base = scanner.nextDouble();
+        System.out.print("Digite a altura do retângulo: ");
+        double altura = scanner.nextDouble();
+        double areaRetangulo = base * altura;
+        double perimetro = 2 * (base + altura);
+        System.out.printf("Área: %.2f\n", areaRetangulo);
+        System.out.printf("Perímetro: %.2f\n\n", perimetro);
+        
+        // 8. Cálculo do Volume de uma Esfera
+        System.out.println("Exercício 8 - Volume de uma esfera");
+        System.out.print("Digite o raio da esfera: ");
+        double raioEsfera = scanner.nextDouble();
+        double volume = (4.0/3.0) * Math.PI * Math.pow(raioEsfera, 3);
+        System.out.printf("Volume: %.2f\n\n", volume);
+        
+        // 9. Conversão de Moeda
+        System.out.println("Exercício 9 - Conversão de moeda");
+        System.out.print("Digite o valor em reais: ");
+        double reais = scanner.nextDouble();
+        System.out.print("Digite a cotação do dólar: ");
+        double cotacaoDolar = scanner.nextDouble();
+        double dolares = reais / cotacaoDolar;
+        System.out.printf("Valor em dólares: US$ %.2f\n\n", dolares);
+        
+        // 10. Distância Entre Dois Pontos
+        System.out.println("Exercício 10 - Distância entre dois pontos");
+        System.out.print("Digite x1: ");
+        double x1 = scanner.nextDouble();
+        System.out.print("Digite y1: ");
+        double y1 = scanner.nextDouble();
+        System.out.print("Digite x2: ");
+        double x2 = scanner.nextDouble();
+        System.out.print("Digite y2: ");
+        double y2 = scanner.nextDouble();
+        double distancia = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        System.out.printf("Distância entre os pontos: %.2f\n", distancia);
+        
+        scanner.close();
+    }
+}
