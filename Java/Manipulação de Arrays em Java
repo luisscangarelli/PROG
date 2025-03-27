@@ -1,0 +1,77 @@
+import java.util.Scanner;
+
+public class ArrayProg {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Exercício 1: Maior e Menor Valor em um Array
+        int[] numeros = new int[5];
+        System.out.println("Digite 5 números inteiros:");
+        for (int i = 0; i < 5; i++) {
+            numeros[i] = scanner.nextInt();
+        }
+        int maior = numeros[0], menor = numeros[0];
+        for (int num : numeros) {
+            if (num > maior) maior = num;
+            if (num < menor) menor = num;
+        }
+        System.out.println("Maior número: " + maior);
+        System.out.println("Menor número: " + menor);
+
+        // Exercício 2: Cálculo da Média de Notas
+        double[] notas = new double[4];
+        double soma = 0;
+        System.out.println("Digite 4 notas:");
+        for (int i = 0; i < 4; i++) {
+            notas[i] = scanner.nextDouble();
+            soma += notas[i];
+        }
+        double media = soma / 4;
+        System.out.println("Média: " + media);
+        System.out.println(media >= 7 ? "Aprovado" : "Reprovado");
+
+        // Exercício 3: Inversão de Elementos de um Array
+        int[] numerosInversos = new int[6];
+        System.out.println("Digite 6 números inteiros:");
+        for (int i = 0; i < 6; i++) {
+            numerosInversos[i] = scanner.nextInt();
+        }
+        System.out.println("Números na ordem inversa:");
+        for (int i = 5; i >= 0; i--) {
+            System.out.print(numerosInversos[i] + " ");
+        }
+        System.out.println();
+
+        // Exercício 4: Contagem de Números Pares
+        int[] paresArray = new int[8];
+        int countPares = 0;
+        System.out.println("Digite 8 números inteiros:");
+        for (int i = 0; i < 8; i++) {
+            paresArray[i] = scanner.nextInt();
+            if (paresArray[i] % 2 == 0) countPares++;
+        }
+        System.out.println("Quantidade de números pares: " + countPares);
+
+        // Exercício 5: Busca de Elemento em um Array
+        int[] buscaArray = new int[10];
+        System.out.println("Digite 10 números inteiros:");
+        for (int i = 0; i < 10; i++) {
+            buscaArray[i] = scanner.nextInt();
+        }
+        System.out.println("Digite um número para buscar no array:");
+        int busca = scanner.nextInt();
+        boolean encontrado = false;
+        for (int i = 0; i < 10; i++) {
+            if (buscaArray[i] == busca) {
+                System.out.println("Número encontrado na posição: " + i);
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("Número não encontrado.");
+        }
+
+        scanner.close();
+    }
+}
