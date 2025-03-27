@@ -1,0 +1,156 @@
+public class ExerciciosClasses {
+    // Exercício 1: Conta Bancária
+    static class ContaBancaria {
+        private String titular;
+        private double saldo;
+
+        public ContaBancaria(String titular, double saldoInicial) {
+            this.titular = titular;
+            this.saldo = saldoInicial;
+        }
+
+        public void depositar(double valor) {
+            if (valor > 0) {
+                saldo += valor;
+                System.out.println("Depósito de R$ " + valor + " realizado.");
+            } else {
+                System.out.println("Valor de depósito inválido.");
+            }
+        }
+
+        public void sacar(double valor) {
+            if (valor > 0 && valor <= saldo) {
+                saldo -= valor;
+                System.out.println("Saque de R$ " + valor + " realizado.");
+            } else {
+                System.out.println("Saque não permitido.");
+            }
+        }
+
+        public void exibirSaldo() {
+            System.out.println("Saldo atual: R$ " + saldo);
+        }
+    }
+
+    // Exercício 2: Funcionário com Bônus
+    static class Funcionario {
+        private String nome;
+        private double salarioBase;
+        private String categoria;
+
+        public Funcionario(String nome, double salarioBase, String categoria) {
+            this.nome = nome;
+            this.salarioBase = salarioBase;
+            this.categoria = categoria;
+        }
+
+        public double calcularSalarioFinal() {
+            switch (categoria.toUpperCase()) {
+                case "A":
+                    return salarioBase * 1.20; // 20% de bônus
+                case "B":
+                    return salarioBase * 1.10; // 10% de bônus
+                case "C":
+                    return salarioBase; // Sem bônus
+                default:
+                    return salarioBase;
+            }
+        }
+
+        public void exibirInformacoes() {
+            System.out.println("Nome: " + nome);
+            System.out.println("Categoria: " + categoria);
+            System.out.printf("Salário Base: R$ %.2f%n", salarioBase);
+            System.out.printf("Salário Final: R$ %.2f%n", calcularSalarioFinal());
+        }
+    }
+
+    // Exercício 3: Elevador
+    static class Elevador {
+        private int andarAtual;
+        private int totalAndares;
+
+        public Elevador(int totalAndares) {
+            this.totalAndares = totalAndares;
+            this.andarAtual = 0;
+        }
+
+        public void subir() {
+            if (andarAtual < totalAndares) {
+                andarAtual++;
+                System.out.println("Subindo. Andar atual: " + andarAtual);
+            } else {
+                System.out.println("Já está no último andar.");
+            }
+        }
+
+        public void descer() {
+            if (andarAtual > 0) {
+                andarAtual--;
+                System.out.println("Descendo. Andar atual: " + andarAtual);
+            } else {
+                System.out.println("Já está no térreo.");
+            }
+        }
+
+        public int getAndarAtual() {
+            return andarAtual;
+        }
+    }
+
+    // Exercício 4: Aluno
+    static class Aluno {
+        private String nome;
+        private double nota;
+
+        public Aluno(String nome) {
+            this.nome = nome;
+        }
+
+        public boolean setNota(double nota) {
+            if (nota >= 0 && nota <= 10) {
+                this.nota = nota;
+                return true;
+            }
+            System.out.println("Nota inválida. Digite uma nota entre 0 e 10.");
+            return false;
+        }
+
+        public String classificarAluno() {
+            if (nota >= 7) {
+                return "Aprovado";
+            } else if (nota >= 5) {
+                return "Recuperação";
+            } else {
+                return "Reprovado";
+            }
+        }
+
+        public void exibirResultado() {
+            System.out.println("Nome: " + nome);
+            System.out.printf("Nota: %.2f%n", nota);
+            System.out.println("Situação: " + classificarAluno());
+        }
+    }
+
+    // Exercício 5: Caixa Eletrônico
+    static class CaixaEletronico {
+        private double saldo;
+
+        public CaixaEletronico(double saldoInicial) {
+            this.saldo = saldoInicial;
+        }
+
+        public void sacar(double valor) {
+            if (valor > 0 && valor <= saldo && valor % 10 == 0) {
+                saldo -= valor;
+                System.out.printf("Saque de R$ %.2f realizado com sucesso.%n", valor);
+            } else {
+                System.out.println("Saque não permitido. Verifique o valor e saldo.");
+            }
+        }
+
+        public void exibirSaldo() {
+            System.out.printf("Saldo atual: R$ %.2f%n", saldo);
+        }
+    }
