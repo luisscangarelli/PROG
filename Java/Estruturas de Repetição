@@ -1,0 +1,90 @@
+import java.util.Scanner;
+
+public class EstruturasRepeticao {
+    private static Scanner scanner = new Scanner(System.in);
+
+    // Exercício 1: Soma dos N primeiros números naturais
+    public static void exercicio1() {
+        System.out.println("\n--- EXERCÍCIO 1: Soma dos N primeiros números naturais ---");
+        System.out.print("Digite um número N: ");
+        int N = scanner.nextInt();
+        
+        int soma = 0;
+        for (int contador = 1; contador <= N; contador++) {
+            soma += contador;
+        }
+        
+        System.out.println("A soma dos " + N + " primeiros números naturais é: " + soma);
+    }
+
+    // Exercício 2: Tabuada de um número
+    public static void exercicio2() {
+        System.out.println("\n--- EXERCÍCIO 2: Tabuada de um número ---");
+        System.out.print("Digite um número para a tabuada: ");
+        int numero = scanner.nextInt();
+        
+        int contador = 1;
+        while (contador <= 10) {
+            int resultado = numero * contador;
+            System.out.println(numero + " x " + contador + " = " + resultado);
+            contador++;
+        }
+    }
+
+    // Exercício 3: Contagem regressiva usando do-while
+    public static void exercicio3() {
+        System.out.println("\n--- EXERCÍCIO 3: Contagem regressiva ---");
+        System.out.print("Digite um número inteiro positivo: ");
+        int numero = scanner.nextInt();
+        
+        do {
+            System.out.println(numero);
+            numero--;
+        } while (numero >= 0);
+    }
+
+    // Exercício 4: Média de notas de uma turma
+    public static void exercicio4() {
+        System.out.println("\n--- EXERCÍCIO 4: Média de notas da turma ---");
+        System.out.print("Digite a quantidade de alunos: ");
+        int quantidadeAlunos = scanner.nextInt();
+        
+        double somaNotas = 0;
+        for (int i = 1; i <= quantidadeAlunos; i++) {
+            System.out.print("Digite a nota do aluno " + i + ": ");
+            double nota = scanner.nextDouble();
+            somaNotas += nota;
+        }
+        
+        double media = somaNotas / quantidadeAlunos;
+        System.out.printf("A média da turma é: %.2f\n", media);
+    }
+
+    // Exercício 5: Números primos em um intervalo
+    public static void exercicio5() {
+        System.out.println("\n--- EXERCÍCIO 5: Números primos no intervalo ---");
+        System.out.print("Digite o número inicial do intervalo: ");
+        int inicio = scanner.nextInt();
+        
+        System.out.print("Digite o número final do intervalo: ");
+        int fim = scanner.nextInt();
+        
+        System.out.println("Números primos no intervalo:");
+        
+        for (int numero = inicio; numero <= fim; numero++) {
+            boolean ehPrimo = true;
+            
+            for (int divisor = 2; divisor <= Math.sqrt(numero); divisor++) {
+                if (numero % divisor == 0) {
+                    ehPrimo = false;
+                    break;
+                }
+            }
+            
+            if (ehPrimo && numero > 1) {
+                System.out.print(numero + " ");
+            }
+        }
+        System.out.println(); // Pular linha após imprimir os primos
+    }
+}
