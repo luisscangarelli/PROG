@@ -1,1 +1,142 @@
+// EXERCÍCIO 1: Gravação e Leitura de Texto em Arquivo
+import java.io.*;
+import java.util.Scanner;
 
+public class Exercicio1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        try {
+            // Gravar texto no arquivo
+            System.out.print("Digite o texto para salvar no arquivo: ");
+            String texto = scanner.nextLine();
+            
+            FileWriter fileWriter = new FileWriter("texto.txt");
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            
+            bufferedWriter.write(texto);
+            bufferedWriter.close();
+            fileWriter.close();
+            
+            System.out.println("Texto salvo com sucesso no arquivo 'texto.txt'!");
+            
+            // Ler e exibir conteúdo do arquivo
+            FileReader fileReader = new FileReader("texto.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            
+            System.out.println("\nConteúdo do arquivo:");
+            String linha;
+            while ((linha = bufferedReader.readLine()) != null) {
+                System.out.println(linha);
+            }
+            
+            bufferedReader.close();
+            fileReader.close();
+            
+        } catch (IOException e) {
+            System.out.println("Erro ao manipular o arquivo: " + e.getMessage());
+        }
+        
+        scanner.close();
+    }
+}
+
+// EXERCÍCIO 2: Contagem de Palavras em um Arquivo
+import java.io.*;
+
+public class Exercicio2 {
+    public static void main(String[] args) {
+        try {
+            // Primeiro, criar o arquivo dados.txt com um texto de exemplo
+            FileWriter fileWriter = new FileWriter("dados.txt");
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            
+            bufferedWriter.write("Este é um arquivo de exemplo para contar palavras. ");
+            bufferedWriter.write("Java é uma linguagem de programação muito poderosa. ");
+            bufferedWriter.write("Manipulação de arquivos é importante para desenvolvedores.");
+            
+            bufferedWriter.close();
+            fileWriter.close();
+            
+            System.out.println("Arquivo 'dados.txt' criado com texto de exemplo.");
+            
+            // Ler o arquivo e contar palavras
+            FileReader fileReader = new FileReader("dados.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            
+            int totalPalavras = 0;
+            String linha;
+            
+            while ((linha = bufferedReader.readLine()) != null) {
+                String[] palavras = linha.trim().split("\\s+");
+                if (!linha.trim().isEmpty()) {
+                    totalPalavras += palavras.length;
+                }
+            }
+            
+            bufferedReader.close();
+            fileReader.close();
+            
+            System.out.println("Número total de palavras no arquivo: " + totalPalavras);
+            
+        } catch (IOException e) {
+            System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+        }
+    }
+}
+
+// EXERCÍCIO 3: Interface Gráfica com JavaFX – Simulador de Mensagens
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class Exercicio3 extends Application {
+    
+    @Override
+    public void start(Stage primaryStage) {
+        // Criar elementos da interface
+        TextField campoTexto = new TextField();
+        campoTexto.setPromptText("Digite seu texto aqui...");
+        
+        Button botao = new Button("Exibir Mensagem");
+        
+        Label labelMensagem = new Label("Sua mensagem aparecerá aqui");
+        labelMensagem.setStyle("-fx-font-size: 14px; -fx-text-fill: blue;");
+        
+        // Ação do botão
+        botao.setOnAction(e -> {
+            String textoDigitado = campoTexto.getText();
+            if (!textoDigitado.isEmpty()) {
+                labelMensagem.setText(textoDigitado);
+            } else {
+                labelMensagem.setText("Por favor, digite algum texto!");
+            }
+        });
+        
+        // Organizar elementos usando VBox
+        VBox layout = new VBox(10);
+        layout.setPadding(new Insets(20));
+        layout.getChildren().addAll(
+            new Label("Simulador de Mensagens:"),
+            campoTexto,
+            botao,
+            new Label("Mensagem exibida:"),
+            labelMensagem
+        );
+        
+        // Criar cena e configurar palco
+        Scene scene = new Scene(layout, 400, 250);
+        primaryStage.setTitle("Exercício 3 - Simulador de Mensagens");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+    
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
