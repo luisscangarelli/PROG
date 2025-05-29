@@ -1,0 +1,154 @@
+// EXERCÍCIO 1: Adicionar e Exibir Números
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Exercicio1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> numeros = new ArrayList<>();
+        String continuar;
+        
+        do {
+            System.out.print("Digite um número: ");
+            int numero = scanner.nextInt();
+            numeros.add(numero);
+            
+            System.out.print("Deseja continuar? (s/n): ");
+            continuar = scanner.next();
+        } while (continuar.equalsIgnoreCase("s"));
+        
+        System.out.println("\nNúmeros digitados:");
+        for (int numero : numeros) {
+            System.out.println(numero);
+        }
+        
+        scanner.close();
+    }
+}
+
+// EXERCÍCIO 2: Remover um Elemento da Lista
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Exercicio2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> nomes = new ArrayList<>();
+        
+        for (int i = 1; i <= 5; i++) {
+            System.out.print("Digite o " + i + "º nome: ");
+            String nome = scanner.nextLine();
+            nomes.add(nome);
+        }
+        
+        System.out.println("\nLista atual: " + nomes);
+        
+        System.out.print("Digite o nome que deseja remover: ");
+        String nomeRemover = scanner.nextLine();
+        
+        if (nomes.remove(nomeRemover)) {
+            System.out.println("Nome removido com sucesso!");
+        } else {
+            System.out.println("Nome não encontrado na lista.");
+        }
+        
+        System.out.println("Lista após remoção: " + nomes);
+        scanner.close();
+    }
+}
+
+// EXERCÍCIO 3: Soma de Números e Cálculo da Média
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Exercicio3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Double> numeros = new ArrayList<>();
+        double numero;
+        
+        System.out.println("Digite números (digite -1 para parar):");
+        while (true) {
+            System.out.print("Digite um número: ");
+            numero = scanner.nextDouble();
+            
+            if (numero == -1) {
+                break;
+            }
+            numeros.add(numero);
+        }
+        
+        double soma = 0;
+        for (double num : numeros) {
+            soma += num;
+        }
+        
+        double media = soma / numeros.size();
+        
+        System.out.println("Soma: " + soma);
+        System.out.println("Média: " + media);
+        
+        scanner.close();
+    }
+}
+
+// EXERCÍCIO 4: Contagem de Ocorrências de um Número
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Exercicio4 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> numeros = new ArrayList<>();
+        
+        for (int i = 1; i <= 10; i++) {
+            System.out.print("Digite o " + i + "º número: ");
+            int numero = scanner.nextInt();
+            numeros.add(numero);
+        }
+        
+        System.out.print("Digite o número para contar ocorrências: ");
+        int numeroBuscar = scanner.nextInt();
+        
+        int contador = 0;
+        for (int numero : numeros) {
+            if (numero == numeroBuscar) {
+                contador++;
+            }
+        }
+        
+        System.out.println("O número " + numeroBuscar + " aparece " + contador + " vez(es) na lista.");
+        
+        scanner.close();
+    }
+}
+
+// EXERCÍCIO 5: Ordenação de Lista de Números
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Exercicio5 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> numeros = new ArrayList<>();
+        String continuar;
+        
+        do {
+            System.out.print("Digite um número: ");
+            int numero = scanner.nextInt();
+            numeros.add(numero);
+            
+            System.out.print("Deseja continuar? (s/n): ");
+            continuar = scanner.next();
+        } while (continuar.equalsIgnoreCase("s"));
+        
+        System.out.println("Lista original: " + numeros);
+        
+        Collections.sort(numeros);
+        
+        System.out.println("Lista ordenada: " + numeros);
+        
+        scanner.close();
+    }
+}
