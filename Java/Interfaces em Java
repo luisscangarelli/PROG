@@ -1,0 +1,183 @@
+// Exercício 1: Interface para Pagamentos
+
+interface Pagamento {
+    void realizarPagamento(double valor);
+}
+
+class CartaoCredito implements Pagamento {
+    @Override
+    public void realizarPagamento(double valor) {
+        System.out.println("Pagamento de R$ " + valor + " realizado com Cartão de Crédito.");
+    }
+}
+
+class BoletoBancario implements Pagamento {
+    @Override
+    public void realizarPagamento(double valor) {
+        System.out.println("Pagamento de R$ " + valor + " realizado com Boleto Bancário.");
+    }
+}
+
+class SistemaPagamento {
+    public static void main(String[] args) {
+        CartaoCredito cartao = new CartaoCredito();
+        BoletoBancario boleto = new BoletoBancario();
+        
+        cartao.realizarPagamento(150.00);
+        boleto.realizarPagamento(250.75);
+    }
+}
+
+// =====================================================
+
+// Exercício 2: Interface para Formas Geométricas
+
+import java.util.Scanner;
+
+interface FormaGeometrica {
+    double calcularArea();
+    double calcularPerimetro();
+}
+
+class Retangulo implements FormaGeometrica {
+    private double largura;
+    private double altura;
+    
+    public Retangulo(double largura, double altura) {
+        this.largura = largura;
+        this.altura = altura;
+    }
+    
+    @Override
+    public double calcularArea() {
+        return largura * altura;
+    }
+    
+    @Override
+    public double calcularPerimetro() {
+        return 2 * (largura + altura);
+    }
+}
+
+class Circulo implements FormaGeometrica {
+    private double raio;
+    
+    public Circulo(double raio) {
+        this.raio = raio;
+    }
+    
+    @Override
+    public double calcularArea() {
+        return Math.PI * raio * raio;
+    }
+    
+    @Override
+    public double calcularPerimetro() {
+        return 2 * Math.PI * raio;
+    }
+}
+
+class CalculadoraFormas {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Digite a largura do retângulo: ");
+        double largura = scanner.nextDouble();
+        System.out.print("Digite a altura do retângulo: ");
+        double altura = scanner.nextDouble();
+        
+        Retangulo retangulo = new Retangulo(largura, altura);
+        
+        System.out.print("Digite o raio do círculo: ");
+        double raio = scanner.nextDouble();
+        
+        Circulo circulo = new Circulo(raio);
+        
+        System.out.println("\nRetângulo:");
+        System.out.println("Área: " + retangulo.calcularArea());
+        System.out.println("Perímetro: " + retangulo.calcularPerimetro());
+        
+        System.out.println("\nCírculo:");
+        System.out.println("Área: " + circulo.calcularArea());
+        System.out.println("Perímetro: " + circulo.calcularPerimetro());
+        
+        scanner.close();
+    }
+}
+
+// =====================================================
+
+// Exercício 3: Interface para Dispositivos Eletrônicos
+
+import java.util.Scanner;
+
+interface DispositivoEletronico {
+    void ligar();
+    void desligar();
+}
+
+class Smartphone implements DispositivoEletronico {
+    @Override
+    public void ligar() {
+        System.out.println("Smartphone ligado.");
+    }
+    
+    @Override
+    public void desligar() {
+        System.out.println("Smartphone desligado.");
+    }
+}
+
+class Televisao implements DispositivoEletronico {
+    @Override
+    public void ligar() {
+        System.out.println("TV ligada.");
+    }
+    
+    @Override
+    public void desligar() {
+        System.out.println("TV desligada.");
+    }
+}
+
+class ControleDispositivos {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Smartphone smartphone = new Smartphone();
+        Televisao televisao = new Televisao();
+        
+        int opcao;
+        do {
+            System.out.println("\n=== CONTROLE DE DISPOSITIVOS ===");
+            System.out.println("1. Ligar Smartphone");
+            System.out.println("2. Desligar Smartphone");
+            System.out.println("3. Ligar TV");
+            System.out.println("4. Desligar TV");
+            System.out.println("0. Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = scanner.nextInt();
+            
+            switch (opcao) {
+                case 1:
+                    smartphone.ligar();
+                    break;
+                case 2:
+                    smartphone.desligar();
+                    break;
+                case 3:
+                    televisao.ligar();
+                    break;
+                case 4:
+                    televisao.desligar();
+                    break;
+                case 0:
+                    System.out.println("Saindo...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        } while (opcao != 0);
+        
+        scanner.close();
+    }
+}
